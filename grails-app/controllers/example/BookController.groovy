@@ -18,6 +18,11 @@ class BookController {
         redirect action: ' '
     }
 
+    def deleteCriteria(Long id) {
+        Book.where {id == id}.deleteAll()
+        redirect action: ' '
+    }
+
     def deleteHql(Long id) {
         Book.executeUpdate('delete from Book where id = :id', [id: id])
         redirect action: ' '
